@@ -13,6 +13,7 @@ run(
     print_only_content=True,
     # TODO:
     #  Use `presence_penalty` parameter with different range (-2.0 to 2.0)
+    presence_penalty=1.5,  # Encourage topic diversity
 )
 
 # In the final result, we can see that the higher `presence_penalty` (2.0) the more LLM is trying to add topics that

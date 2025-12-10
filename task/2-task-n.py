@@ -14,6 +14,10 @@ run(
     # TODO:
     #  1. Provide `deployment_name` with model from the list above👆
     #  2. Use `n` parameter with value in range from 1 to 5!
+    deployment_name='gpt-4o',  # GPT-4o supports multiple choices
+    n=3,  # Generate 3 different responses
+    print_request=True,
+    print_only_content=False,
 )
 
 # Pay attention to the number of choices in the response!

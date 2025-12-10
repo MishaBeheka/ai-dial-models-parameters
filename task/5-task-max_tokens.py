@@ -8,6 +8,7 @@ run(
     deployment_name='gpt-4o',
     # TODO:
     #  Use `max_tokens` parameter with value 10
+    max_tokens=10,  # Limit response to 10 tokens
 )
 
 # Previously, we have seen that the `finish_reason` in choice was `stop`, but now it is `length`, and if you check the

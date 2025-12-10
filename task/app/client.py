@@ -104,13 +104,23 @@ class DialClient:
             data = response.json()
             choices = data.get("choices", [])
             if choices:
-                content = choices[0].get("message", {}).get("content")
                 print("\n" + "="*50 + " RESPONSE " + "="*50)
                 if print_only_content:
-                    print(content)
+                    # If multiple choices, show all of them
+                    if len(choices) > 1:
+                        for i, choice in enumerate(choices):
+                            content = choice.get("message", {}).get("content")
+                            print(f"\n--- Choice {i+1} ---")
+                            print(content)
+                    else:
+                        content = choices[0].get("message", {}).get("content")
+                        print(content)
                 else:
                     print(json.dumps(data, indent=2, sort_keys=True))
                 print("="*108)
+
+                # Return the first choice as Message object
+                content = choices[0].get("message", {}).get("content")
                 return Message(Role.AI, content)
             raise ValueError("No Choice has been present in the response")
         else:
